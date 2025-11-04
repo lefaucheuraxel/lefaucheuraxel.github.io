@@ -305,8 +305,8 @@ function initSmoothScroll() {
     });
 }
 
-// ===== LOAD PROJECTS =====
-function loadProjects() {
+// ===== RENDER PROJECTS =====
+function renderProjects() {
     const projectsGrid = document.getElementById('projectsGrid');
     
     if (projectsGrid && typeof projectsData !== 'undefined') {
@@ -321,6 +321,9 @@ function loadProjects() {
         if (typeof AOS !== 'undefined') {
             AOS.refresh();
         }
+        
+        // Re-initialize project filters after rendering
+        initProjectFilters();
     }
 }
 
