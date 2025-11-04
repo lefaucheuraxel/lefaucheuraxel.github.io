@@ -5,7 +5,7 @@ document.addEventListener('DOMContentLoaded', function() {
     initTyped();
     initNavbar();
     initSkillBars();
-    initProjectFilters();
+    renderProjects();
     initContactForm();
     initBackToTop();
     initTooltips();
@@ -321,9 +321,6 @@ function renderProjects() {
         if (typeof AOS !== 'undefined') {
             AOS.refresh();
         }
-        
-        // Re-initialize project filters after rendering
-        initProjectFilters();
     }
 }
 
