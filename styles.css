@@ -397,6 +397,37 @@ body {
     color: var(--light-text);
 }
 
+.skill-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.8rem;
+}
+
+.skill-badge {
+    background: rgba(99, 102, 241, 0.15);
+    color: var(--light-text);
+    padding: 0.6rem 1.2rem;
+    border-radius: 25px;
+    font-weight: 500;
+    font-size: 0.9rem;
+    border: 1px solid rgba(99, 102, 241, 0.3);
+    transition: all 0.3s ease;
+    cursor: default;
+}
+
+.skill-badge:hover {
+    background: var(--gradient-primary);
+    border-color: var(--primary-color);
+    transform: translateY(-3px) scale(1.05);
+    box-shadow: 0 5px 15px rgba(99, 102, 241, 0.4);
+}
+
+.skill-badge-large {
+    padding: 0.8rem 2rem;
+    font-size: 1.1rem;
+    font-weight: 600;
+}
+
 .skill-item {
     margin-bottom: 1.5rem;
 }
@@ -725,6 +756,12 @@ body {
 }
 
 /* ===== CONTACT SECTION ===== */
+.contact-link {
+    text-decoration: none;
+    color: inherit;
+    display: block;
+}
+
 .contact-info-card {
     background: var(--card-bg);
     padding: 2rem;

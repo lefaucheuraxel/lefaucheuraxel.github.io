@@ -125,7 +125,7 @@ function initTyped() {
         if (typedElement) {
             new Typed('.typed-text', {
                 strings: [
-                    'Axel Le Faucheur',
+                    'le faucheur Axel',
                     'Étudiant en Master 2 SIIA',
                     'Développeur Java & Python',
                     'Passionné d\'IA et LLM',
