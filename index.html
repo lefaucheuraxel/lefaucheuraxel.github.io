@@ -2,29 +2,554 @@
 <html lang="fr">
 <head>
     <meta charset="UTF-8">
-    <title>Axel Le Faucheur - Portfolio</title>
-    <style>
-        body { font-family: Arial, sans-serif; margin: 40px; }
-        h1 { color: #2c3e50; }
-        .container { max-width: 800px; margin: 0 auto; }
-    </style>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CV Interactif - Axel</title>
+    
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+    
+    <!-- AOS Animation Library -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <div class="container">
-        <h1>Axel Le Faucheur</h1>
-        <h2>Étudiant en Master 2 SIIA</h2>
-        <p>Passionné par le développement informatique et les technologies innovantes.</p>
-        
-        <h3>Mes projets</h3>
-        <ul>
-            <li>Projet Unity - La Tombe Du Dragon</li>
-            <li>Application Java - Simulation ENT</li>
-            <li>Site web - monchienmapate.fr</li>
-        </ul>
-        
-        <h3>Contact</h3>
-        <p>Email: efaucheuravel@gmail.com</p>
-        <p>LinkedIn: <a href="https://linkedin.com/in/axel-lefaucheur">Mon profil</a></p>
-    </div>
+    <!-- Particles Background -->
+    <div id="particles-js"></div>
+    
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-dark fixed-top" id="mainNav">
+        <div class="container">
+            <a class="navbar-brand" href="#home">
+                <span class="gradient-text">Portfolio</span>
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="#home">Accueil</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#about">À propos</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#skills">Compétences</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#projects">Projets</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#experience">Expérience</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero-section d-flex align-items-center">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-6" data-aos="fade-right">
+                    <h1 class="display-3 fw-bold mb-3">
+                        Bonjour, je suis <span class="gradient-text typed-text"></span>
+                    </h1>
+                    <p class="lead mb-4">Développeur passionné par la Réalité Virtuelle, l'IA et la Robotique</p>
+                    <div class="hero-buttons">
+                        <a href="#projects" class="btn btn-primary btn-lg me-3">
+                            <i class="bi bi-folder-fill me-2"></i>Mes Projets
+                        </a>
+                        <a href="#contact" class="btn btn-outline-light btn-lg">
+                            <i class="bi bi-envelope-fill me-2"></i>Me Contacter
+                        </a>
+                    </div>
+                    <div class="social-links mt-4">
+                        <a href="#" class="social-icon"><i class="bi bi-github"></i></a>
+                        <a href="#" class="social-icon"><i class="bi bi-linkedin"></i></a>
+                        <a href="#" class="social-icon"><i class="bi bi-envelope"></i></a>
+                    </div>
+                </div>
+                <div class="col-lg-6" data-aos="fade-left">
+                    <div class="hero-image-container">
+                        <div class="floating-card">
+                            <i class="bi bi-code-slash"></i>
+                            <span>Code</span>
+                        </div>
+                        <div class="floating-card">
+                            <i class="bi bi-cpu"></i>
+                            <span>AI/ML</span>
+                        </div>
+                        <div class="floating-card">
+                            <i class="bi bi-headset-vr"></i>
+                            <span>VR/AR</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="scroll-indicator">
+            <a href="#about"><i class="bi bi-chevron-down"></i></a>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="section-padding">
+        <div class="container">
+            <div class="section-title" data-aos="fade-up">
+                <h2>À Propos de Moi</h2>
+                <div class="title-underline"></div>
+            </div>
+            <div class="row align-items-center">
+                <div class="col-lg-6" data-aos="fade-right">
+                    <div class="about-image">
+                        <div class="image-border"></div>
+                        <img src="https://via.placeholder.com/500x600" alt="Profile" class="img-fluid rounded">
+                    </div>
+                </div>
+                <div class="col-lg-6" data-aos="fade-left">
+                    <div class="about-content">
+                        <h3 class="mb-4">Développeur Full Stack & Spécialiste VR/AR</h3>
+                        <p class="lead">
+                            Passionné par les technologies immersives et l'intelligence artificielle, 
+                            je développe des solutions innovantes qui repoussent les limites de l'interaction homme-machine.
+                        </p>
+                        <p>
+                            Mon expertise couvre un large spectre : du développement d'applications VR/AR avec Unity, 
+                            à la robotique avec PyBullet et ROS, en passant par le machine learning et le développement web moderne.
+                        </p>
+                        <div class="info-list mt-4">
+                            <div class="info-item">
+                                <i class="bi bi-geo-alt-fill"></i>
+                                <span>France</span>
+                            </div>
+                            <div class="info-item">
+                                <i class="bi bi-mortarboard-fill"></i>
+                                <span>Master en Informatique</span>
+                            </div>
+                            <div class="info-item">
+                                <i class="bi bi-briefcase-fill"></i>
+                                <span>Disponible pour opportunités</span>
+                            </div>
+                        </div>
+                        <a href="CV_2025.pdf" class="btn btn-primary mt-4" download>
+                            <i class="bi bi-download me-2"></i>Télécharger CV
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills" class="section-padding bg-dark">
+        <div class="container">
+            <div class="section-title" data-aos="fade-up">
+                <h2>Compétences Techniques</h2>
+                <div class="title-underline"></div>
+            </div>
+            
+            <div class="row g-4">
+                <!-- Programming Languages -->
+                <div class="col-lg-6" data-aos="fade-up" data-aos-delay="100">
+                    <div class="skill-category">
+                        <h4><i class="bi bi-code-square me-2"></i>Langages de Programmation</h4>
+                        <div class="skill-item">
+                            <div class="skill-header">
+                                <span>Python</span>
+                                <span class="skill-percentage">95%</span>
+                            </div>
+                            <div class="progress">
+                                <div class="progress-bar" data-progress="95"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="skill-header">
+                                <span>C#</span>
+                                <span class="skill-percentage">90%</span>
+                            </div>
+                            <div class="progress">
+                                <div class="progress-bar" data-progress="90"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="skill-header">
+                                <span>JavaScript / TypeScript</span>
+                                <span class="skill-percentage">85%</span>
+                            </div>
+                            <div class="progress">
+                                <div class="progress-bar" data-progress="85"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="skill-header">
+                                <span>C++</span>
+                                <span class="skill-percentage">80%</span>
+                            </div>
+                            <div class="progress">
+                                <div class="progress-bar" data-progress="80"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- VR/AR & 3D -->
+                <div class="col-lg-6" data-aos="fade-up" data-aos-delay="200">
+                    <div class="skill-category">
+                        <h4><i class="bi bi-headset-vr me-2"></i>VR/AR & 3D</h4>
+                        <div class="skill-item">
+                            <div class="skill-header">
+                                <span>Unity 3D</span>
+                                <span class="skill-percentage">95%</span>
+                            </div>
+                            <div class="progress">
+                                <div class="progress-bar" data-progress="95"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="skill-header">
+                                <span>XR Interaction Toolkit</span>
+                                <span class="skill-percentage">90%</span>
+                            </div>
+                            <div class="progress">
+                                <div class="progress-bar" data-progress="90"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="skill-header">
+                                <span>Blender</span>
+                                <span class="skill-percentage">75%</span>
+                            </div>
+                            <div class="progress">
+                                <div class="progress-bar" data-progress="75"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="skill-header">
+                                <span>Three.js</span>
+                                <span class="skill-percentage">80%</span>
+                            </div>
+                            <div class="progress">
+                                <div class="progress-bar" data-progress="80"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- AI & Robotics -->
+                <div class="col-lg-6" data-aos="fade-up" data-aos-delay="300">
+                    <div class="skill-category">
+                        <h4><i class="bi bi-robot me-2"></i>IA & Robotique</h4>
+                        <div class="skill-item">
+                            <div class="skill-header">
+                                <span>PyBullet</span>
+                                <span class="skill-percentage">90%</span>
+                            </div>
+                            <div class="progress">
+                                <div class="progress-bar" data-progress="90"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="skill-header">
+                                <span>TensorFlow / PyTorch</span>
+                                <span class="skill-percentage">85%</span>
+                            </div>
+                            <div class="progress">
+                                <div class="progress-bar" data-progress="85"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="skill-header">
+                                <span>ROS</span>
+                                <span class="skill-percentage">75%</span>
+                            </div>
+                            <div class="progress">
+                                <div class="progress-bar" data-progress="75"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="skill-header">
+                                <span>Arduino</span>
+                                <span class="skill-percentage">85%</span>
+                            </div>
+                            <div class="progress">
+                                <div class="progress-bar" data-progress="85"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Web Development -->
+                <div class="col-lg-6" data-aos="fade-up" data-aos-delay="400">
+                    <div class="skill-category">
+                        <h4><i class="bi bi-globe me-2"></i>Développement Web</h4>
+                        <div class="skill-item">
+                            <div class="skill-header">
+                                <span>React / Vue.js</span>
+                                <span class="skill-percentage">85%</span>
+                            </div>
+                            <div class="progress">
+                                <div class="progress-bar" data-progress="85"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="skill-header">
+                                <span>Node.js / Express</span>
+                                <span class="skill-percentage">80%</span>
+                            </div>
+                            <div class="progress">
+                                <div class="progress-bar" data-progress="80"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="skill-header">
+                                <span>Bootstrap / Tailwind</span>
+                                <span class="skill-percentage">90%</span>
+                            </div>
+                            <div class="progress">
+                                <div class="progress-bar" data-progress="90"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="skill-header">
+                                <span>MongoDB / SQL</span>
+                                <span class="skill-percentage">80%</span>
+                            </div>
+                            <div class="progress">
+                                <div class="progress-bar" data-progress="80"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Tech Stack Icons -->
+            <div class="tech-stack mt-5" data-aos="fade-up">
+                <h4 class="text-center mb-4">Technologies & Outils</h4>
+                <div class="tech-icons">
+                    <div class="tech-icon" data-bs-toggle="tooltip" title="Unity">
+                        <i class="bi bi-unity"></i>
+                    </div>
+                    <div class="tech-icon" data-bs-toggle="tooltip" title="Python">
+                        <i class="bi bi-python"></i>
+                    </div>
+                    <div class="tech-icon" data-bs-toggle="tooltip" title="Git">
+                        <i class="bi bi-git"></i>
+                    </div>
+                    <div class="tech-icon" data-bs-toggle="tooltip" title="Docker">
+                        <i class="bi bi-docker"></i>
+                    </div>
+                    <div class="tech-icon" data-bs-toggle="tooltip" title="Linux">
+                        <i class="bi bi-ubuntu"></i>
+                    </div>
+                    <div class="tech-icon" data-bs-toggle="tooltip" title="VS Code">
+                        <i class="bi bi-code-slash"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="section-padding">
+        <div class="container">
+            <div class="section-title" data-aos="fade-up">
+                <h2>Mes Projets</h2>
+                <div class="title-underline"></div>
+                <p class="section-subtitle">Une sélection de mes réalisations les plus significatives</p>
+            </div>
+
+            <!-- Project Filters -->
+            <div class="project-filters text-center mb-5" data-aos="fade-up">
+                <button class="filter-btn active" data-filter="all">Tous</button>
+                <button class="filter-btn" data-filter="vr">VR/AR</button>
+                <button class="filter-btn" data-filter="robotics">Robotique</button>
+                <button class="filter-btn" data-filter="web">Web</button>
+                <button class="filter-btn" data-filter="ai">IA/ML</button>
+            </div>
+
+            <!-- Projects Grid -->
+            <div class="row g-4" id="projectsGrid">
+                <!-- Projects will be dynamically loaded here -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Experience Section -->
+    <section id="experience" class="section-padding bg-dark">
+        <div class="container">
+            <div class="section-title" data-aos="fade-up">
+                <h2>Expérience & Formation</h2>
+                <div class="title-underline"></div>
+            </div>
+
+            <div class="row">
+                <div class="col-lg-6" data-aos="fade-right">
+                    <h3 class="mb-4"><i class="bi bi-briefcase-fill me-2"></i>Expérience Professionnelle</h3>
+                    <div class="timeline">
+                        <div class="timeline-item">
+                            <div class="timeline-dot"></div>
+                            <div class="timeline-content">
+                                <h5>Développeur VR/AR</h5>
+                                <span class="timeline-date"><i class="bi bi-calendar3"></i> 2024 - Présent</span>
+                                <p>Développement d'applications immersives en réalité virtuelle et augmentée avec Unity et XR Toolkit.</p>
+                                <div class="timeline-tags">
+                                    <span class="badge">Unity</span>
+                                    <span class="badge">C#</span>
+                                    <span class="badge">XR</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="timeline-item">
+                            <div class="timeline-dot"></div>
+                            <div class="timeline-content">
+                                <h5>Développeur Full Stack</h5>
+                                <span class="timeline-date"><i class="bi bi-calendar3"></i> 2023 - 2024</span>
+                                <p>Conception et développement d'applications web modernes avec React et Node.js.</p>
+                                <div class="timeline-tags">
+                                    <span class="badge">React</span>
+                                    <span class="badge">Node.js</span>
+                                    <span class="badge">MongoDB</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-6" data-aos="fade-left">
+                    <h3 class="mb-4"><i class="bi bi-mortarboard-fill me-2"></i>Formation</h3>
+                    <div class="timeline">
+                        <div class="timeline-item">
+                            <div class="timeline-dot"></div>
+                            <div class="timeline-content">
+                                <h5>Master Informatique - Spécialité RVRA</h5>
+                                <span class="timeline-date"><i class="bi bi-calendar3"></i> 2023 - 2025</span>
+                                <p>Spécialisation en Réalité Virtuelle, Réalité Augmentée et technologies immersives.</p>
+                                <div class="timeline-tags">
+                                    <span class="badge">VR/AR</span>
+                                    <span class="badge">3D</span>
+                                    <span class="badge">Unity</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="timeline-item">
+                            <div class="timeline-dot"></div>
+                            <div class="timeline-content">
+                                <h5>Licence Informatique</h5>
+                                <span class="timeline-date"><i class="bi bi-calendar3"></i> 2020 - 2023</span>
+                                <p>Formation en développement logiciel, algorithmique et bases de données.</p>
+                                <div class="timeline-tags">
+                                    <span class="badge">Python</span>
+                                    <span class="badge">Java</span>
+                                    <span class="badge">SQL</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="section-padding">
+        <div class="container">
+            <div class="section-title" data-aos="fade-up">
+                <h2>Me Contacter</h2>
+                <div class="title-underline"></div>
+                <p class="section-subtitle">N'hésitez pas à me contacter pour toute opportunité ou collaboration</p>
+            </div>
+
+            <div class="row g-4">
+                <div class="col-lg-4" data-aos="fade-up" data-aos-delay="100">
+                    <div class="contact-info-card">
+                        <div class="contact-icon">
+                            <i class="bi bi-geo-alt-fill"></i>
+                        </div>
+                        <h5>Localisation</h5>
+                        <p>France</p>
+                    </div>
+                </div>
+                <div class="col-lg-4" data-aos="fade-up" data-aos-delay="200">
+                    <div class="contact-info-card">
+                        <div class="contact-icon">
+                            <i class="bi bi-envelope-fill"></i>
+                        </div>
+                        <h5>Email</h5>
+                        <p>votre.email@example.com</p>
+                    </div>
+                </div>
+                <div class="col-lg-4" data-aos="fade-up" data-aos-delay="300">
+                    <div class="contact-info-card">
+                        <div class="contact-icon">
+                            <i class="bi bi-phone-fill"></i>
+                        </div>
+                        <h5>Téléphone</h5>
+                        <p>+33 X XX XX XX XX</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row mt-5">
+                <div class="col-lg-8 mx-auto" data-aos="fade-up">
+                    <form id="contactForm" class="contact-form">
+                        <div class="row g-3">
+                            <div class="col-md-6">
+                                <input type="text" class="form-control" placeholder="Votre nom" required>
+                            </div>
+                            <div class="col-md-6">
+                                <input type="email" class="form-control" placeholder="Votre email" required>
+                            </div>
+                            <div class="col-12">
+                                <input type="text" class="form-control" placeholder="Sujet" required>
+                            </div>
+                            <div class="col-12">
+                                <textarea class="form-control" rows="5" placeholder="Votre message" required></textarea>
+                            </div>
+                            <div class="col-12 text-center">
+                                <button type="submit" class="btn btn-primary btn-lg">
+                                    <i class="bi bi-send-fill me-2"></i>Envoyer le message
+                                </button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 text-center">
+                    <div class="social-links mb-3">
+                        <a href="#" class="social-icon"><i class="bi bi-github"></i></a>
+                        <a href="#" class="social-icon"><i class="bi bi-linkedin"></i></a>
+                        <a href="#" class="social-icon"><i class="bi bi-twitter"></i></a>
+                        <a href="#" class="social-icon"><i class="bi bi-envelope"></i></a>
+                    </div>
+                    <p class="mb-0">&copy; 2025 Portfolio. Tous droits réservés.</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Back to Top Button -->
+    <button id="backToTop" class="back-to-top">
+        <i class="bi bi-arrow-up"></i>
+    </button>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <!-- Particles.js -->
+    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+    
+    <!-- AOS Animation -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    
+    <!-- Typed.js -->
+    <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
+    
+    <!-- Custom Scripts -->
+    <script src="projects.js"></script>
+    <script src="script.js"></script>
 </body>
 </html>
