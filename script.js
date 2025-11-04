@@ -125,11 +125,11 @@ function initTyped() {
         if (typedElement) {
             new Typed('.typed-text', {
                 strings: [
-                    'Axel',
-                    'Développeur VR/AR',
-                    'Ingénieur Robotique',
-                    'Développeur Full Stack',
-                    'Passionné d\'IA'
+                    'Axel Le Faucheur',
+                    'Étudiant en Master 2 SIIA',
+                    'Développeur Java & Python',
+                    'Passionné d\'IA et LLM',
+                    'Développeur Web'
                 ],
                 typeSpeed: 80,
                 backSpeed: 50,
