@@ -341,10 +341,6 @@ function createProjectCard(project, index) {
             <div class="project-card" data-category="${project.category}">
                 <div class="project-image">
                     <img src="${project.image}" alt="${project.title}">
-                    <div class="project-overlay">
-                        ${project.demoUrl ? `<a href="${project.demoUrl}" target="_blank"><i class="bi bi-eye-fill"></i></a>` : ''}
-                        ${project.githubUrl ? `<a href="${project.githubUrl}" target="_blank"><i class="bi bi-github"></i></a>` : ''}
-                    </div>
                 </div>
                 <div class="project-content">
                     <div class="project-category">${project.categoryName}</div>
