@@ -309,6 +309,10 @@ function initSmoothScroll() {
 function renderProjects() {
     const projectsGrid = document.getElementById('projectsGrid');
     
+    console.log('renderProjects called');
+    console.log('projectsGrid:', projectsGrid);
+    console.log('projectsData:', typeof projectsData !== 'undefined' ? projectsData : 'undefined');
+    
     if (projectsGrid && typeof projectsData !== 'undefined') {
         projectsGrid.innerHTML = '';
         
@@ -317,10 +321,14 @@ function renderProjects() {
             projectsGrid.innerHTML += projectCard;
         });
         
+        console.log('Projects rendered:', projectsData.length);
+        
         // Re-initialize AOS for new elements
         if (typeof AOS !== 'undefined') {
             AOS.refresh();
         }
+    } else {
+        console.error('Cannot render projects - missing projectsGrid or projectsData');
     }
 }
 
