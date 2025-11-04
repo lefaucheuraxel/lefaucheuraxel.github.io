@@ -1,0 +1,115 @@
+LE FAUCHEUR AXEL
+ÉTUDIANT
+PROFIL PERSONNEL ET MOTIVATIONS
+
+Recherche de stage niveau M2 en informatique d’une durée de 5 mois à
+partir du 16 Fevrier dans le secteur Île-de-France ou Bretagne
+EXPERIENCE PROFESSIONNELLE
+
+Travail saisonnier :
+Deux mois chez Macdonald’s et Intermarché
+COORDONNÉES
+https://www.linkedin.com/in/a
+xel-le-faucheur-23b368250
+lefaucheuraxel@gmail.com
+06 44 75 31 94
+
+PERMIS
+2017 : Permis AM
+2021 : Permis B
+2023 : Permis A2
+2025 : Permis A
+
+FORMATION
+2021 - Bac Mathématiques / Physique-chimie
+2024 - Licence Informatique IFA à l’UBO
+2025 (actuellement) - Master 2 SIIA à
+l’UBO/ENIB/IMT Atlantique
+
+COMPÉTENCES
+
+Langages programmation :
+Jflex
+JavaCup
+GO
+
+Bases de données et Technologies Web
+Sql
+Oracle
+PhpmyAdmin
+Posgre
+
+Html
+Css
+Php
+CodeIgniter 4
+
+PROJETS RÉALISÉ À UNIVERSITÉ ET PERSONNEL:
+(EN EXCLUANT LES PROJETS DE STAGES)
+
+“escapeW@b”, utilisation du framework codeigniter4 et conception
+d’une petite base de données en mariaDB.
+monchienmepate.fr: PHP, Bootstrap, BDD SQL.(chat, réservation,etc)
+Application java :
+Simulation un ENT en Java 19 en équipe de 3. Banc de tests,
+interface graphique avec JavaFX.
+Permettant de gérer et générer des éléments graphique pour créer
+des petite animation avec l’interface IHM coder en swing
+Permettant de connecter plusieurs utilisateurs sur un chat partagé
+en roseau local
+Projet compilation :
+Programme en Jflex et JavaCup qui reconnaissait un langage définit
+
+Outils
+
+Git
+JUnit 5
+Maven
+SpringBoot
+Angular
+ArgoCD
+Docker
+Kubernetes
+SSH
+
+2025 - LAB-STICC Brest
+SUJET DE TAL : Etude de l’explicabilité des comportements collectifs
+auto-organisés de robots grâce aux Large Language Models
+Les technologies utilisées : Unity(projet Artuisis), OLLAMA, C#, Python,
+LLM, RAG, Chainlit.
+Competences : LLM local, prompts et base de donnée RAG personnaliser,
+Tokenisation, embedding, chunks et Transformers.
+
+Site web :
+
+Anglais - B1
+
+C, C++, C#
+Java
+Java script
+Bash
+Python
+
+Stage/ TAL :
+2024 - Crédit Agricole Saint-Quentin-En-Yvelines
+SUJET DE STAGE : Mise en place d’une application de pilotage des
+reportings avec un front-end en Angular et un back-end en Java.
+Les technologies utilisées : Java, Angular, sql Oracle
+Environnement de travail : International : en lien avec les équipes de
+Singapour, Agile, Devops - CICD, Green IT, Cloud interne (Kubernetes)
+
+Visual Studio, Code
+Eclipse
+Unity
+Godot
+Blender
+Arduino
+
+Projet Unity :
+Création d’un jeu vidéo RPG (La Tombe Du Dragon) en utilisant des
+Asset gratuit
+Projet Controlleur :
+Capteurs arduino associer pour créer un contrôleur
+original(assemblage sur un vélo) pour jouer à SuperTuxKart.
+
+
