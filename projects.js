@@ -4,7 +4,7 @@ const projectsData = [
     {
         title: "Stage TAL - LAB-STICC Brest",
         category: "ai",
-        categoryName: "IA",
+        categoryName: "IA/ML",
         description: "Etude de l'explicabilité des comportements collectifs auto-organisés de robots grâce aux Large Language Models. Travail sur Unity (projet Artuisis), OLLAMA, C#, Python, LLM, RAG, Chainlit. Compétences : LLM local, prompts et base de donnée RAG personnalisée, Tokenisation, embedding, chunks et Transformers.",
         image: "https://images.unsplash.com/photo-1677442136019-21780ecad995?w=500&h=300&fit=crop",
         tags: ["Unity", "LLM", "Python", "C#", "RAG", "OLLAMA", "Chainlit"],
