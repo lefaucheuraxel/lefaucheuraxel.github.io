@@ -1056,7 +1056,7 @@ body {
 @media (max-width: 768px) {
     .hero-section h1 {
         font-size: 2rem;
-        min-height: 6rem; /* Hauteur fixe ajustée pour mobile (texte sur plusieurs lignes) */
+        min-height: 9rem; /* Hauteur fixe pour 3 lignes de texte sur mobile */
     }
     
     .hero-section .lead {
@@ -1089,5 +1089,13 @@ body {
         width: 60px;
         height: 60px;
         font-size: 1.8rem;
+    }
+}
+
+/* Très petits écrans (smartphones en mode portrait) */
+@media (max-width: 480px) {
+    .hero-section h1 {
+        font-size: 1.75rem;
+        min-height: 10rem; /* Hauteur encore plus grande pour les très petits écrans */
     }
 }
