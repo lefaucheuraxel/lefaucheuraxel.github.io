@@ -1,6 +1,6 @@
 // ===== PROJECTS DATA =====
 const projectsData = [
-    // Stage TAL
+    /*// Stage TAL
     {
         title: "Stage TAL - LAB-STICC Brest",
         category: "ai",
@@ -22,7 +22,7 @@ const projectsData = [
         tags: ["Angular", "Java", "Oracle SQL", "Kubernetes", "DevOps", "CI/CD"],
         githubUrl: "#",
         demoUrl: "#"
-    },
+    },*/
 
     // Projet Unity - Jeu RPG
     {
