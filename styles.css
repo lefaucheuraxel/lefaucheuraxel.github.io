@@ -116,6 +116,13 @@ body {
     font-weight: 800;
     margin-bottom: 1.5rem;
     animation: fadeInUp 1s ease;
+    min-height: 4.5rem; /* Hauteur fixe pour éviter les sauts sur mobile */
+}
+
+/* Container pour le texte animé avec hauteur fixe */
+.typed-text {
+    display: inline-block;
+    min-height: 1.2em; /* Hauteur minimale pour une ligne */
 }
 
 .hero-section .lead {
@@ -1033,6 +1040,7 @@ body {
 @media (max-width: 992px) {
     .hero-section h1 {
         font-size: 2.5rem;
+        min-height: 5rem; /* Hauteur fixe ajustée pour tablette */
     }
     
     .hero-image-container {
@@ -1048,6 +1056,7 @@ body {
 @media (max-width: 768px) {
     .hero-section h1 {
         font-size: 2rem;
+        min-height: 6rem; /* Hauteur fixe ajustée pour mobile (texte sur plusieurs lignes) */
     }
     
     .hero-section .lead {
