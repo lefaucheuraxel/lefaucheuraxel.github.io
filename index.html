@@ -4,30 +4,96 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CV Interactif - le faucheur Axel</title>
+    <title>Axel Le Faucheur — Développeur Fullstack Junior</title>
+    <meta name="description"
+        content="Portfolio d'Axel Le Faucheur, développeur Fullstack junior diplômé d'un Master. Expérience chez Crédit Agricole CIB sur des projets Java, Data et Intelligence Artificielle.">
+    <meta name="author" content="Axel Le Faucheur">
 
-    <!-- Bootstrap 5 CSS -->
+    <!-- Open Graph -->
+    <meta property="og:title" content="Axel Le Faucheur — Développeur Fullstack Junior">
+    <meta property="og:description" content="Java, Data & IA générative. Portfolio interactif.">
+    <meta property="og:type" content="website">
+
+    <!-- Google Fonts : Bricolage Grotesque (display) + Manrope (corps) + JetBrains Mono (labels techniques) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,300..800&family=Manrope:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap"
+        rel="stylesheet">
+
+    <!-- Bootstrap 5 CSS (grille + collapse) -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
 
     <!-- Bootstrap Icons -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
 
-    <!-- AOS Animation Library -->
-    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
-
     <!-- Custom CSS -->
     <link rel="stylesheet" href="styles.css">
+
+    <!-- Préconnexion au CDN 3D -->
+    <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+
+    <!-- Import map pour Three.js (modules ES) -->
+    <script type="importmap">
+    {
+      "imports": {
+        "three": "https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.module.js",
+        "three/addons/": "https://cdn.jsdelivr.net/npm/three@0.160.0/examples/jsm/"
+      }
+    }
+    </script>
 </head>
 
 <body>
-    <!-- Particles Background -->
-    <div id="particles-js"></div>
+    <!-- ===== SCÈNE 3D INTERACTIVE (Three.js) ===== -->
+    <canvas id="webgl" class="webgl-canvas"></canvas>
+
+    <!-- ===== PRÉCHARGEUR ===== -->
+    <div id="preloader" class="preloader">
+        <div class="preloader-inner">
+            <div class="preloader-mark">AL</div>
+            <div class="preloader-track"><span class="preloader-fill"></span></div>
+            <div class="preloader-count">0%</div>
+        </div>
+    </div>
+
+    <!-- ===== CURSEUR PERSONNALISÉ ===== -->
+    <div class="cursor-dot" aria-hidden="true"></div>
+    <div class="cursor-ring" aria-hidden="true"></div>
+
+    <!-- ===== TEXTURE GRAIN ===== -->
+    <div class="grain" aria-hidden="true"></div>
+
+    <!-- ===== FOND AMBIANT ADAPTATIF (se métamorphose selon l'environnement) ===== -->
+    <div class="ambient" aria-hidden="true">
+        <div class="ambient-wash" data-scroll-fixed="0.12"></div>
+        <div class="aurora" data-scroll-fixed="0.32">
+            <span class="aurora-band band-1"></span>
+            <span class="aurora-band band-2"></span>
+            <span class="aurora-band band-3"></span>
+        </div>
+        <div class="ambient-grid" data-scroll-fixed="0.18"></div>
+    </div>
+
+    <!-- ===== BARRE DE PROGRESSION ===== -->
+    <div id="scrollProgress"></div>
+
+    <!-- ===== NAVIGATION LATÉRALE (points de section) ===== -->
+    <nav class="world-nav" aria-label="Navigation par section">
+        <a href="#home" class="world-dot active" data-label="Accueil" aria-label="Accueil"><span></span></a>
+        <a href="#about" class="world-dot" data-label="À propos" aria-label="À propos"><span></span></a>
+        <a href="#skills" class="world-dot" data-label="Compétences" aria-label="Compétences"><span></span></a>
+        <a href="#projects" class="world-dot" data-label="Travaux" aria-label="Travaux"><span></span></a>
+        <a href="#experience" class="world-dot" data-label="Expérience" aria-label="Expérience"><span></span></a>
+        <a href="#contact" class="world-dot" data-label="Contact" aria-label="Contact"><span></span></a>
+    </nav>
 
     <!-- Navigation -->
-    <nav class="navbar navbar-expand-lg navbar-dark fixed-top" id="mainNav">
+    <nav class="navbar navbar-expand-lg navbar-dark fixed-top" id="mainNav" aria-label="Navigation principale">
         <div class="container">
             <a class="navbar-brand" href="#home">
-                <span class="gradient-text">CV Interactif</span>
+                <span class="brand-mark">AL</span>
+                <span class="gradient-text">Axel Le Faucheur</span>
             </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
                 <span class="navbar-toggler-icon"></span>
@@ -46,75 +112,129 @@
     </nav>
 
     <!-- Hero Section -->
-    <section id="home" class="hero-section d-flex align-items-center">
+    <section id="home" class="hero-section d-flex align-items-center" data-env="home">
         <div class="container">
             <div class="row align-items-center">
-                <div class="col-lg-6" data-aos="fade-right">
-                    <h1 class="display-3 fw-bold mb-3">
-                        Bonjour, je suis <span class="gradient-text typed-text"></span>
+                <div class="col-lg-6 hero-copy" data-aos="fade-right">
+                    <div class="kicker">
+                        <span class="kicker-dot"></span>
+                        Disponible — Développeur Fullstack, diplômé d'un Master
+                    </div>
+                    <h1 class="hero-title mb-3">
+                        <span class="hero-line-1">Bonjour, je suis</span>
+                        <span class="gradient-text typed-text"></span>
                     </h1>
-                    <p class="lead mb-4">Étudiant en Master 2 SIIA - Recherche de stage en informatique (5 mois à partir
-                        du 16 Février)</p>
+                    <p class="lead mb-4">Développeur Fullstack passionné par le <strong>backend Java</strong>, les
+                        <strong>architectures distribuées</strong>, l'<strong>IA générative</strong> et les
+                        environnements <strong>Cloud</strong>. Expérience chez Crédit Agricole CIB.
+                    </p>
                     <div class="hero-buttons">
-                        <a href="#projects" class="btn btn-primary btn-lg me-3">
+                        <a href="#projects" class="btn btn-primary btn-lg btn-magnetic me-3">
                             <i class="bi bi-folder-fill me-2"></i>Mes Travaux
                         </a>
-                        <a href="#skills" class="btn btn-outline-light btn-lg">
-                            <i class="bi bi-envelope-fill me-2"></i>Mes compétences
+                        <a href="#contact" class="btn btn-outline-light btn-lg btn-magnetic">
+                            <i class="bi bi-envelope-fill me-2"></i>Me contacter
                         </a>
                     </div>
                     <div class="social-links mt-4">
-                        <a href="https://github.com/lefaucheuraxel" target="_blank" class="social-icon"><i
-                                class="bi bi-github"></i></a>
-                        <a href="https://www.linkedin.com/in/axel-le-faucheur" target="_blank" class="social-icon"><i
-                                class="bi bi-linkedin"></i></a>
-                        <a href="mailto:lefaucheuraxel@gmail.com" class="social-icon"><i class="bi bi-envelope"></i></a>
+                        <a href="https://github.com/lefaucheuraxel" target="_blank" rel="noopener"
+                            class="social-icon" aria-label="GitHub"><i class="bi bi-github"></i></a>
+                        <a href="https://www.linkedin.com/in/axel-le-faucheur" target="_blank" rel="noopener"
+                            class="social-icon" aria-label="LinkedIn"><i class="bi bi-linkedin"></i></a>
+                        <a href="mailto:lefaucheuraxel@gmail.com" class="social-icon" aria-label="Email"><i
+                                class="bi bi-envelope"></i></a>
                     </div>
                 </div>
                 <div class="col-lg-6" data-aos="fade-left">
-                    <div class="hero-image-container">
-                        <div class="floating-card">
-                            <i class="bi bi-code-slash"></i>
-                            <span>Code</span>
+                    <div class="hero-visual" data-tilt data-parallax="0.06">
+                        <div class="hero-core">
+                            <span class="core-ring"></span>
+                            <span class="core-ring"></span>
+                            <span class="core-ring"></span>
+                            <span class="core-disc">AL</span>
                         </div>
-                        <div class="floating-card">
-                            <i class="bi bi-cpu"></i>
-                            <span>AI</span>
-                        </div>
-                        <div class="floating-card">
-                            <i class="bi bi-headset-vr"></i>
-                            <span>VR/AR</span>
-                        </div>
+                        <div class="float-chip chip-1" data-depth="2.4"><i class="bi bi-cup-hot-fill"></i><span>Java</span></div>
+                        <div class="float-chip chip-2" data-depth="1.6"><i class="bi bi-cpu-fill"></i><span>IA / LLM</span></div>
+                        <div class="float-chip chip-3" data-depth="3"><i class="bi bi-database-fill"></i><span>Data</span></div>
+                        <div class="float-chip chip-4" data-depth="2"><i class="bi bi-cloud-fill"></i><span>Cloud</span></div>
+                        <div class="float-chip chip-5" data-depth="1.2"><i class="bi bi-diagram-3-fill"></i><span>DevOps</span></div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Hero Stats -->
+            <div class="row hero-stats mt-5" data-aos="fade-up" data-aos-delay="300">
+                <div class="col-6 col-md-3">
+                    <div class="stat-box">
+                        <span class="stat-number" data-target="11">0</span><span class="stat-plus">+</span>
+                        <p>Projets réalisés</p>
+                    </div>
+                </div>
+                <div class="col-6 col-md-3">
+                    <div class="stat-box">
+                        <span class="stat-number" data-target="30">0</span><span class="stat-plus">+</span>
+                        <p>Technologies</p>
+                    </div>
+                </div>
+                <div class="col-6 col-md-3">
+                    <div class="stat-box">
+                        <span class="stat-number" data-target="3">0</span>
+                        <p>Expériences pro</p>
+                    </div>
+                </div>
+                <div class="col-6 col-md-3">
+                    <div class="stat-box">
+                        <span class="stat-number" data-target="5">0</span>
+                        <p>Années de code</p>
                     </div>
                 </div>
             </div>
         </div>
-        <div class="scroll-indicator">
-            <a href="#about"><i class="bi bi-chevron-down"></i></a>
-        </div>
+        <a class="scroll-indicator" href="#about" aria-label="Défiler vers le bas">
+            <span class="scroll-mouse"><span class="scroll-wheel"></span></span>
+            <span class="scroll-word">Explorer</span>
+        </a>
     </section>
 
+    <!-- Bande défilante de technologies -->
+    <div class="marquee" aria-hidden="true">
+        <div class="marquee-track">
+            <span>Java 21</span><span class="dot">•</span><span>Spring Boot</span><span class="dot">•</span><span>Python</span><span class="dot">•</span><span>Angular</span><span class="dot">•</span><span>Spark</span><span class="dot">•</span><span>LLM &amp; RAG</span><span class="dot">•</span><span>Kubernetes</span><span class="dot">•</span><span>Docker</span><span class="dot">•</span><span>GraphQL</span><span class="dot">•</span><span>Oracle</span><span class="dot">•</span><span>MCP</span><span class="dot">•</span><span>ArgoCD</span><span class="dot">•</span>
+            <span>Java 21</span><span class="dot">•</span><span>Spring Boot</span><span class="dot">•</span><span>Python</span><span class="dot">•</span><span>Angular</span><span class="dot">•</span><span>Spark</span><span class="dot">•</span><span>LLM &amp; RAG</span><span class="dot">•</span><span>Kubernetes</span><span class="dot">•</span><span>Docker</span><span class="dot">•</span><span>GraphQL</span><span class="dot">•</span><span>Oracle</span><span class="dot">•</span><span>MCP</span><span class="dot">•</span><span>ArgoCD</span><span class="dot">•</span>
+        </div>
+    </div>
+
     <!-- About Section -->
-    <section id="about" class="section-padding">
+    <section id="about" class="section-padding" data-env="about">
         <div class="container">
             <div class="section-title" data-aos="fade-up">
+                <span class="section-kicker">01 &mdash; Profil</span>
                 <h2>À Propos de Moi</h2>
                 <div class="title-underline"></div>
             </div>
             <div class="row align-items-center">
                 <div class="col-lg-6" data-aos="fade-right">
-                    <div class="about-image">
+                    <a href="CV_2026.pdf" target="_blank" rel="noopener" class="about-image"
+                        title="Ouvrir le CV en PDF" data-parallax="0.08">
                         <div class="image-border"></div>
-                        <iframe src="CV_2025.pdf#toolbar=0&navpanes=0&scrollbar=0&view=Fit" width="100%" height="850px"
-                            class="rounded" style="border: none; position: relative; z-index: 2;"></iframe>
-                    </div>
+                        <img src="CV_2026.png" alt="CV d'Axel Le Faucheur — Développeur Fullstack"
+                            class="cv-image" loading="lazy">
+                        <span class="cv-zoom-hint"><i class="bi bi-zoom-in me-2"></i>Voir en grand</span>
+                    </a>
                 </div>
                 <div class="col-lg-6" data-aos="fade-left">
                     <div class="about-content">
-                        <h3 class="mb-4">Le Faucheur Axel - Étudiant</h3>
+                        <h3 class="mb-4">Axel Le Faucheur — Développeur Fullstack</h3>
                         <p class="lead">
-                            Recherche de stage niveau M2 en informatique d'une durée de 5 mois à partir du 16 Fevrier
-                            dans le secteur Île-de-France ou Bretagne
+                            Développeur Fullstack diplômé d'un Master (SIIA — Systèmes Intelligents, Interactifs et
+                            Autonomes). Expérience chez Crédit Agricole CIB sur des projets Java, Data et Intelligence
+                            Artificielle.
+                        </p>
+                        <p>
+                            Intérêt particulier pour le développement <strong>backend</strong>, les
+                            <strong>architectures distribuées</strong>, l'<strong>IA générative</strong> et les
+                            environnements <strong>Cloud</strong>. J'aime concevoir des systèmes robustes et explorer les
+                            usages concrets des LLM.
                         </p>
                         <div class="info-list mt-4">
                             <div class="info-item">
@@ -134,8 +254,8 @@
                                 <span>lefaucheuraxel.github.io</span>
                             </div>
                         </div>
-                        <a href="CV_2025.pdf" class="btn btn-primary mt-4" download>
-                            <i class="bi bi-download me-2"></i>Télécharger CV
+                        <a href="CV_2026.pdf" class="btn btn-primary mt-4" download>
+                            <i class="bi bi-download me-2"></i>Télécharger mon CV
                         </a>
                     </div>
                 </div>
@@ -144,106 +264,161 @@
     </section>
 
     <!-- Skills Section -->
-    <section id="skills" class="section-padding bg-dark">
+    <section id="skills" class="section-padding" data-env="skills">
         <div class="container">
             <div class="section-title" data-aos="fade-up">
+                <span class="section-kicker">02 &mdash; Stack technique</span>
                 <h2>Compétences</h2>
                 <div class="title-underline"></div>
+                <p class="section-subtitle">Les technologies et outils que j'utilise au quotidien</p>
             </div>
 
             <div class="row g-4">
-                <!-- Colonne gauche -->
-                <div class="col-lg-6">
-                    <div class="row g-4">
-                        <!-- Langages programmation -->
-                        <div class="col-12" data-aos="fade-up" data-aos-delay="200">
-                            <div class="skill-section-simple">
-                                <h4 class="skill-title">Langages programmation</h4>
-                                <p class="skill-content">C, C++, C#<br>
-                                    Java<br>
-                                    Java script<br>
-                                    Bash<br>
-                                    Python<br>
-                                    Html<br>
-                                    Css<br>
-                                    Php<br>
-                                    CodeIgniter 4</p>
-                            </div>
+                <!-- Langages -->
+                <div class="col-lg-6" data-aos="fade-up">
+                    <div class="skill-card">
+                        <div class="skill-card-header">
+                            <div class="skill-card-icon"><i class="bi bi-code-slash"></i></div>
+                            <h4>Langages de programmation</h4>
                         </div>
-
-                        <!-- Bases de données et Technologies Web -->
-                        <div class="col-12" data-aos="fade-up" data-aos-delay="300">
-                            <div class="skill-section-simple">
-                                <h4 class="skill-title">Bases de données et Technologies Web</h4>
-                                <p class="skill-content">Sql<br>
-                                    Oracle<br>
-                                    PhpmyAdmin<br>
-                                    Posgre</p>
-                            </div>
-                        </div>
-
-                        <!-- Permis -->
-                        <div class="col-12" data-aos="fade-up" data-aos-delay="500">
-                            <div class="skill-section-simple">
-                                <h4 class="skill-title">Permis</h4>
-                                <p class="skill-content">2017 : Permis AM<br>
-                                    2021 : Permis B<br>
-                                    2023 : Permis A2<br>
-                                    2025 : Permis A</p>
-                            </div>
+                        <div class="skill-tags">
+                            <span class="skill-badge">Java</span>
+                            <span class="skill-badge">Python</span>
+                            <span class="skill-badge">C</span>
+                            <span class="skill-badge">C++</span>
+                            <span class="skill-badge">C#</span>
+                            <span class="skill-badge">JavaScript</span>
+                            <span class="skill-badge">PHP</span>
+                            <span class="skill-badge">Bash</span>
+                            <span class="skill-badge">HTML</span>
+                            <span class="skill-badge">CSS</span>
                         </div>
                     </div>
                 </div>
 
-                <!-- Colonne droite -->
-                <div class="col-lg-6">
-                    <div class="row g-4">
-                        <!-- Outils -->
-                        <div class="col-12" data-aos="fade-up" data-aos-delay="400">
-                            <div class="skill-section-simple">
-                                <h4 class="skill-title">Outils</h4>
-                                <p class="skill-content">Visual Studio, Code<br>
-                                    Eclipse<br>
-                                    Unity<br>
-                                    Godot<br>
-                                    Blender<br>
-                                    Arduino<br>
-                                    Git<br>
-                                    JUnit 5<br>
-                                    Maven<br>
-                                    SpringBoot<br>
-                                    Angular<br>
-                                    ArgoCD<br>
-                                    Docker<br>
-                                    Kubernetes<br>
-                                    SSH<br>
-                                    Jflex<br>
-                                    JavaCup<br>
-                                    GO</p>
-                            </div>
+                <!-- Frameworks -->
+                <div class="col-lg-6" data-aos="fade-up" data-aos-delay="100">
+                    <div class="skill-card">
+                        <div class="skill-card-header">
+                            <div class="skill-card-icon"><i class="bi bi-box-seam"></i></div>
+                            <h4>Frameworks</h4>
                         </div>
+                        <div class="skill-tags">
+                            <span class="skill-badge">Spring Boot</span>
+                            <span class="skill-badge">JUnit 5</span>
+                            <span class="skill-badge">Angular</span>
+                            <span class="skill-badge">Spark</span>
+                            <span class="skill-badge">REST</span>
+                            <span class="skill-badge">GraphQL</span>
+                            <span class="skill-badge">LangChain</span>
+                            <span class="skill-badge">CodeIgniter 4</span>
+                        </div>
+                    </div>
+                </div>
 
-                        <!-- Langues -->
-                        <div class="col-12" data-aos="fade-up" data-aos-delay="100">
-                            <div class="skill-section-simple">
-                                <h4 class="skill-title">Langues</h4>
-                                <p class="skill-content">Anglais - B1</p>
-                            </div>
+                <!-- Bases de données & Web -->
+                <div class="col-lg-6" data-aos="fade-up" data-aos-delay="150">
+                    <div class="skill-card">
+                        <div class="skill-card-header">
+                            <div class="skill-card-icon"><i class="bi bi-database-fill"></i></div>
+                            <h4>Bases de données & Web</h4>
+                        </div>
+                        <div class="skill-tags">
+                            <span class="skill-badge">SQL</span>
+                            <span class="skill-badge">Oracle</span>
+                            <span class="skill-badge">PostgreSQL</span>
+                            <span class="skill-badge">MariaDB</span>
+                            <span class="skill-badge">phpMyAdmin</span>
+                            <span class="skill-badge">Amazon S3</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Outils & DevOps -->
+                <div class="col-lg-6" data-aos="fade-up" data-aos-delay="200">
+                    <div class="skill-card">
+                        <div class="skill-card-header">
+                            <div class="skill-card-icon"><i class="bi bi-tools"></i></div>
+                            <h4>Outils & DevOps</h4>
+                        </div>
+                        <div class="skill-tags">
+                            <span class="skill-badge">Git</span>
+                            <span class="skill-badge">GitHub</span>
+                            <span class="skill-badge">GitLab</span>
+                            <span class="skill-badge">GitOps</span>
+                            <span class="skill-badge">Docker</span>
+                            <span class="skill-badge">Kubernetes</span>
+                            <span class="skill-badge">ArgoCD</span>
+                            <span class="skill-badge">Maven</span>
+                            <span class="skill-badge">MCP</span>
+                            <span class="skill-badge">IntelliJ IDEA</span>
+                            <span class="skill-badge">VS Code</span>
+                            <span class="skill-badge">Unity</span>
+                            <span class="skill-badge">Godot</span>
+                            <span class="skill-badge">Blender</span>
+                            <span class="skill-badge">Arduino</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- IA & Data -->
+                <div class="col-lg-6" data-aos="fade-up" data-aos-delay="250">
+                    <div class="skill-card">
+                        <div class="skill-card-header">
+                            <div class="skill-card-icon"><i class="bi bi-cpu-fill"></i></div>
+                            <h4>IA & Data</h4>
+                        </div>
+                        <div class="skill-tags">
+                            <span class="skill-badge">LLM</span>
+                            <span class="skill-badge">RAG</span>
+                            <span class="skill-badge">OLLAMA</span>
+                            <span class="skill-badge">Embeddings</span>
+                            <span class="skill-badge">Transformers</span>
+                            <span class="skill-badge">Agents IA</span>
+                            <span class="skill-badge">Chainlit</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Langues & Permis -->
+                <div class="col-lg-6" data-aos="fade-up" data-aos-delay="300">
+                    <div class="skill-card">
+                        <div class="skill-card-header">
+                            <div class="skill-card-icon"><i class="bi bi-translate"></i></div>
+                            <h4>Langues & Permis</h4>
+                        </div>
+                        <div class="skill-tags">
+                            <span class="skill-badge">Français — Natif</span>
+                            <span class="skill-badge">Anglais — B1</span>
+                            <span class="skill-badge">Permis AM</span>
+                            <span class="skill-badge">Permis B</span>
+                            <span class="skill-badge">Permis A2</span>
+                            <span class="skill-badge">Permis A</span>
                         </div>
                     </div>
                 </div>
             </div>
-
         </div>
     </section>
 
     <!-- Projects Section -->
-    <section id="projects" class="section-padding">
+    <section id="projects" class="section-padding" data-env="projects">
         <div class="container">
             <div class="section-title" data-aos="fade-up">
+                <span class="section-kicker">03 &mdash; Réalisations</span>
                 <h2>Mes Travaux</h2>
                 <div class="title-underline"></div>
                 <p class="section-subtitle">Une sélection de mes réalisations les plus significatives</p>
+            </div>
+
+            <!-- Project Filters -->
+            <div class="project-filters mb-5" data-aos="fade-up">
+                <button class="filter-btn active" data-filter="all">Tous</button>
+                <button class="filter-btn" data-filter="ai">Data & IA</button>
+                <button class="filter-btn" data-filter="web">Web</button>
+                <button class="filter-btn" data-filter="app">Applications</button>
+                <button class="filter-btn" data-filter="vr">Jeux</button>
+                <button class="filter-btn" data-filter="robotics">Robotique</button>
             </div>
 
             <!-- Projects Grid -->
@@ -254,9 +429,10 @@
     </section>
 
     <!-- Experience Section -->
-    <section id="experience" class="section-padding bg-dark">
+    <section id="experience" class="section-padding" data-env="experience">
         <div class="container">
             <div class="section-title" data-aos="fade-up">
+                <span class="section-kicker">04 &mdash; Parcours</span>
                 <h2>Expérience & Formation</h2>
                 <div class="title-underline"></div>
             </div>
@@ -268,12 +444,32 @@
                         <div class="timeline-item">
                             <div class="timeline-dot"></div>
                             <div class="timeline-content">
-                                <h5>Stage TAL - LAB-STICC Brest</h5>
+                                <h5>Stage — Crédit Agricole CIB (Saint-Quentin-En-Yvelines)</h5>
+                                <span class="timeline-date"><i class="bi bi-calendar3"></i> 2026</span>
+                                <p>Conception d'une application dédiée à la comparaison et à la validation de données
+                                    techniques dans les bases S3, le dictionnaire de données et le code GitLab, augmentée
+                                    par IA. Environnement International, Agile, DevOps - CI/CD, Green IT, Cloud interne
+                                    (Kubernetes).</p>
+                                <div class="timeline-tags">
+                                    <span class="badge">Java 21</span>
+                                    <span class="badge">Spark</span>
+                                    <span class="badge">GitLab API</span>
+                                    <span class="badge">GraphQL</span>
+                                    <span class="badge">Oracle</span>
+                                    <span class="badge">MCP</span>
+                                    <span class="badge">LLM</span>
+                                    <span class="badge">Python 3.14</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="timeline-item">
+                            <div class="timeline-dot"></div>
+                            <div class="timeline-content">
+                                <h5>Stage TAL — LAB-STICC Brest</h5>
                                 <span class="timeline-date"><i class="bi bi-calendar3"></i> 2025</span>
-                                <p>Etude de l'explicabilité des comportements collectifs auto-organisés de robots grâce
-                                    aux Large Language Models. Technologies utilisées : Unity (projet Artuisis), OLLAMA,
-                                    C#, Python, LLM, RAG, Chainlit. Compétences : LLM local, prompts et base de donnée
-                                    RAG personnaliser, Tokenisation, embedding, chunks et Transformers.</p>
+                                <p>Étude de l'explicabilité des comportements collectifs auto-organisés de robots grâce
+                                    aux Large Language Models. LLM locaux, prompts et bases de données RAG personnalisées,
+                                    tokenisation, embeddings, chunks et Transformers.</p>
                                 <div class="timeline-tags">
                                     <span class="badge">Unity</span>
                                     <span class="badge">OLLAMA</span>
@@ -281,6 +477,7 @@
                                     <span class="badge">Python</span>
                                     <span class="badge">LLM</span>
                                     <span class="badge">RAG</span>
+                                    <span class="badge">LangChain</span>
                                     <span class="badge">Chainlit</span>
                                 </div>
                             </div>
@@ -288,16 +485,15 @@
                         <div class="timeline-item">
                             <div class="timeline-dot"></div>
                             <div class="timeline-content">
-                                <h5>Stage - Crédit Agricole Saint-Quentin-En-Yvelines</h5>
+                                <h5>Stage — Crédit Agricole CIB (Saint-Quentin-En-Yvelines)</h5>
                                 <span class="timeline-date"><i class="bi bi-calendar3"></i> 2024</span>
-                                <p>Mise en place d'une application de pilotage des reportings avec un front-end en
-                                    Angular et un back-end en Java. Technologies utilisées : Java, Angular, sql Oracle.
-                                    Environnement de travail : International (en lien avec les équipes de Singapour),
-                                    Agile, Devops - CICD, Green IT, Cloud interne (Kubernetes).</p>
+                                <p>Mise en place d'une application de pilotage des reportings avec un front-end en Angular
+                                    et un back-end en Java. Environnement International (en lien avec les équipes de
+                                    Singapour), Agile, DevOps - CI/CD, Green IT, Cloud interne (Kubernetes).</p>
                                 <div class="timeline-tags">
                                     <span class="badge">Java</span>
                                     <span class="badge">Angular</span>
-                                    <span class="badge">sql Oracle</span>
+                                    <span class="badge">SQL Oracle</span>
                                     <span class="badge">Kubernetes</span>
                                     <span class="badge">Agile</span>
                                     <span class="badge">DevOps</span>
@@ -309,8 +505,8 @@
                             <div class="timeline-dot"></div>
                             <div class="timeline-content">
                                 <h5>Travail saisonnier</h5>
-                                <span class="timeline-date"><i class="bi bi-calendar3"></i> 2 mois</span>
-                                <p>Macdonald's et Intermarché</p>
+                                <span class="timeline-date"><i class="bi bi-calendar3"></i> Étés</span>
+                                <p>McDonald's et Intermarché — sens du service, rigueur et travail en équipe.</p>
                             </div>
                         </div>
                     </div>
@@ -322,10 +518,10 @@
                         <div class="timeline-item">
                             <div class="timeline-dot"></div>
                             <div class="timeline-content">
-                                <h5>Master 2 SIIA</h5>
-                                <span class="timeline-date"><i class="bi bi-calendar3"></i> 2025 (actuellement)</span>
-                                <p>Master 2 SIIA à l'UBO/ENIB/IMT Atlantique - Systèmes Informatiques et Ingénierie
-                                    Avancée</p>
+                                <h5>Master 2 SIIA — Diplômé</h5>
+                                <span class="timeline-date"><i class="bi bi-calendar3"></i> 2025</span>
+                                <p>Master Systèmes Intelligents, Interactifs et Autonomes à l'UBO / ENIB / IMT Atlantique.
+                                    Spécialisation en IA, systèmes distribués et environnements Cloud.</p>
                                 <div class="timeline-tags">
                                     <span class="badge">IA</span>
                                     <span class="badge">DevOps</span>
@@ -338,7 +534,7 @@
                             <div class="timeline-content">
                                 <h5>Licence Informatique IFA</h5>
                                 <span class="timeline-date"><i class="bi bi-calendar3"></i> 2024</span>
-                                <p>Licence Informatique IFA à l'UBO (Université de Bretagne Occidentale)</p>
+                                <p>Licence Informatique IFA à l'UBO (Université de Bretagne Occidentale).</p>
                                 <div class="timeline-tags">
                                     <span class="badge">Java</span>
                                     <span class="badge">Python</span>
@@ -352,7 +548,7 @@
                             <div class="timeline-content">
                                 <h5>Baccalauréat</h5>
                                 <span class="timeline-date"><i class="bi bi-calendar3"></i> 2021</span>
-                                <p>Bac Mathématiques / Physique-chimie</p>
+                                <p>Bac Mathématiques / Physique-chimie.</p>
                                 <div class="timeline-tags">
                                     <span class="badge">Mathématiques</span>
                                     <span class="badge">Physique-chimie</span>
@@ -366,9 +562,10 @@
     </section>
 
     <!-- Contact Section -->
-    <section id="contact" class="section-padding">
+    <section id="contact" class="section-padding" data-env="contact">
         <div class="container">
             <div class="section-title" data-aos="fade-up">
+                <span class="section-kicker">05 &mdash; Prise de contact</span>
                 <h2>Me Contacter</h2>
                 <div class="title-underline"></div>
                 <p class="section-subtitle">N'hésitez pas à me contacter pour toute opportunité ou collaboration</p>
@@ -416,15 +613,17 @@
             <div class="row">
                 <div class="col-lg-12 text-center">
                     <div class="social-links mb-3">
-                        <a href="https://github.com/lefaucheuraxel" target="_blank" class="social-icon"><i
-                                class="bi bi-github"></i></a>
-                        <a href="https://www.linkedin.com/in/axel-le-faucheur" target="_blank" class="social-icon"><i
-                                class="bi bi-linkedin"></i></a>
-                        <a href="https://lefaucheuraxel.github.io/" target="_blank" class="social-icon"><i
-                                class="bi bi-globe"></i></a>
-                        <a href="mailto:lefaucheuraxel@gmail.com" class="social-icon"><i class="bi bi-envelope"></i></a>
+                        <a href="https://github.com/lefaucheuraxel" target="_blank" rel="noopener" class="social-icon"
+                            aria-label="GitHub"><i class="bi bi-github"></i></a>
+                        <a href="https://www.linkedin.com/in/axel-le-faucheur" target="_blank" rel="noopener"
+                            class="social-icon" aria-label="LinkedIn"><i class="bi bi-linkedin"></i></a>
+                        <a href="https://lefaucheuraxel.github.io/" target="_blank" rel="noopener" class="social-icon"
+                            aria-label="Site web"><i class="bi bi-globe"></i></a>
+                        <a href="mailto:lefaucheuraxel@gmail.com" class="social-icon" aria-label="Email"><i
+                                class="bi bi-envelope"></i></a>
                     </div>
-                    <p class="mb-0">&copy; 2025 le faucheur Axel. Tous droits réservés.</p>
+                    <p class="mb-0">&copy; 2026 Axel Le Faucheur — Conçu et développé avec <i
+                            class="bi bi-heart-fill text-danger"></i></p>
                 </div>
             </div>
         </div>
@@ -435,21 +634,18 @@
         <i class="bi bi-arrow-up"></i>
     </button>
 
-    <!-- Bootstrap JS -->
+    <!-- Bootstrap JS (collapse navbar + tooltips) -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
 
-    <!-- Particles.js -->
-    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
-
-    <!-- AOS Animation -->
-    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-
-    <!-- Typed.js -->
-    <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
+    <!-- Lenis — smooth scroll à inertie (style site d'architecture) -->
+    <script src="https://cdn.jsdelivr.net/npm/lenis@1/dist/lenis.min.js"></script>
 
     <!-- Custom Scripts -->
     <script src="projects.js"></script>
     <script src="script.js"></script>
+
+    <!-- Scène 3D interactive (Three.js, modules ES) -->
+    <script type="module" src="three-scene.js"></script>
 </body>
 
 </html>
