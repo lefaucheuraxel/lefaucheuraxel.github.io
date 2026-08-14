@@ -14,11 +14,11 @@
     <meta property="og:description" content="Java, Data & IA générative. Portfolio interactif.">
     <meta property="og:type" content="website">
 
-    <!-- Google Fonts : Bricolage Grotesque (display) + Manrope (corps) + JetBrains Mono (labels techniques) -->
+    <!-- Google Fonts : signalétique de station + lecture éditoriale -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
-        href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,300..800&family=Manrope:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap"
+        href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@400;500;600;700&family=DM+Mono:wght@400;500&family=Instrument+Sans:wdth,wght@75..100,400;500;600;700&display=swap"
         rel="stylesheet">
 
     <!-- Bootstrap 5 CSS (grille + collapse) -->
@@ -29,25 +29,9 @@
 
     <!-- Custom CSS -->
     <link rel="stylesheet" href="styles.css">
-
-    <!-- Préconnexion au CDN 3D -->
-    <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
-
-    <!-- Import map pour Three.js (modules ES) -->
-    <script type="importmap">
-    {
-      "imports": {
-        "three": "https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.module.js",
-        "three/addons/": "https://cdn.jsdelivr.net/npm/three@0.160.0/examples/jsm/"
-      }
-    }
-    </script>
 </head>
 
 <body>
-    <!-- ===== SCÈNE 3D INTERACTIVE (Three.js) ===== -->
-    <canvas id="webgl" class="webgl-canvas"></canvas>
-
     <!-- ===== PRÉCHARGEUR ===== -->
     <div id="preloader" class="preloader">
         <div class="preloader-inner">
@@ -57,35 +41,36 @@
         </div>
     </div>
 
+    <!-- Décor principal : la station est parcourue au défilement. -->
+    <div class="station-stage" aria-hidden="true">
+        <canvas id="stationCanvas"></canvas>
+        <div class="station-atmosphere"></div>
+    </div>
+
+    <!-- Étalonnage cinématographique : vignette, grain argentique, balayage -->
+    <div class="cinematic-overlay" aria-hidden="true"></div>
+
+    <aside class="station-hud" aria-hidden="true">
+        <span class="station-status">STATION BORÉALE // EN LIGNE</span>
+        <strong id="stationZone">QUAI D'ARRIVÉE</strong>
+        <span class="station-instruction">DÉFILER POUR AVANCER</span>
+    </aside>
+
     <!-- ===== CURSEUR PERSONNALISÉ ===== -->
     <div class="cursor-dot" aria-hidden="true"></div>
     <div class="cursor-ring" aria-hidden="true"></div>
-
-    <!-- ===== TEXTURE GRAIN ===== -->
-    <div class="grain" aria-hidden="true"></div>
-
-    <!-- ===== FOND AMBIANT ADAPTATIF (se métamorphose selon l'environnement) ===== -->
-    <div class="ambient" aria-hidden="true">
-        <div class="ambient-wash" data-scroll-fixed="0.12"></div>
-        <div class="aurora" data-scroll-fixed="0.32">
-            <span class="aurora-band band-1"></span>
-            <span class="aurora-band band-2"></span>
-            <span class="aurora-band band-3"></span>
-        </div>
-        <div class="ambient-grid" data-scroll-fixed="0.18"></div>
-    </div>
 
     <!-- ===== BARRE DE PROGRESSION ===== -->
     <div id="scrollProgress"></div>
 
     <!-- ===== NAVIGATION LATÉRALE (points de section) ===== -->
     <nav class="world-nav" aria-label="Navigation par section">
-        <a href="#home" class="world-dot active" data-label="Accueil" aria-label="Accueil"><span></span></a>
-        <a href="#about" class="world-dot" data-label="À propos" aria-label="À propos"><span></span></a>
-        <a href="#skills" class="world-dot" data-label="Compétences" aria-label="Compétences"><span></span></a>
-        <a href="#projects" class="world-dot" data-label="Travaux" aria-label="Travaux"><span></span></a>
-        <a href="#experience" class="world-dot" data-label="Expérience" aria-label="Expérience"><span></span></a>
-        <a href="#contact" class="world-dot" data-label="Contact" aria-label="Contact"><span></span></a>
+        <a href="#home" class="world-dot active" data-label="Quai" aria-label="Quai d'arrivée"><span></span></a>
+        <a href="#about" class="world-dot" data-label="Java" aria-label="Baie Java"><span></span></a>
+        <a href="#skills" class="world-dot" data-label="Data" aria-label="Laboratoire Data"><span></span></a>
+        <a href="#projects" class="world-dot" data-label="IA" aria-label="Laboratoire IA"><span></span></a>
+        <a href="#experience" class="world-dot" data-label="Cloud" aria-label="Baie Cloud"><span></span></a>
+        <a href="#contact" class="world-dot" data-label="Lune" aria-label="Dôme lunaire"><span></span></a>
     </nav>
 
     <!-- Navigation -->
@@ -115,7 +100,7 @@
     <section id="home" class="hero-section d-flex align-items-center" data-env="home">
         <div class="container">
             <div class="row align-items-center">
-                <div class="col-lg-6 hero-copy" data-aos="fade-right">
+                <div class="col-lg-8 hero-copy" data-aos="fade-right">
                     <div class="kicker">
                         <span class="kicker-dot"></span>
                         Disponible — Développeur Fullstack, diplômé d'un Master
@@ -130,10 +115,10 @@
                     </p>
                     <div class="hero-buttons">
                         <a href="#projects" class="btn btn-primary btn-lg btn-magnetic me-3">
-                            <i class="bi bi-folder-fill me-2"></i>Mes Travaux
+                            <i class="bi bi-arrow-down-right-circle-fill me-2"></i>Mes Travaux
                         </a>
                         <a href="#contact" class="btn btn-outline-light btn-lg btn-magnetic">
-                            <i class="bi bi-envelope-fill me-2"></i>Me contacter
+                            <i class="bi bi-broadcast-pin me-2"></i>Me contacter
                         </a>
                     </div>
                     <div class="social-links mt-4">
@@ -143,21 +128,6 @@
                             class="social-icon" aria-label="LinkedIn"><i class="bi bi-linkedin"></i></a>
                         <a href="mailto:lefaucheuraxel@gmail.com" class="social-icon" aria-label="Email"><i
                                 class="bi bi-envelope"></i></a>
-                    </div>
-                </div>
-                <div class="col-lg-6" data-aos="fade-left">
-                    <div class="hero-visual" data-tilt data-parallax="0.06">
-                        <div class="hero-core">
-                            <span class="core-ring"></span>
-                            <span class="core-ring"></span>
-                            <span class="core-ring"></span>
-                            <span class="core-disc">AL</span>
-                        </div>
-                        <div class="float-chip chip-1" data-depth="2.4"><i class="bi bi-cup-hot-fill"></i><span>Java</span></div>
-                        <div class="float-chip chip-2" data-depth="1.6"><i class="bi bi-cpu-fill"></i><span>IA / LLM</span></div>
-                        <div class="float-chip chip-3" data-depth="3"><i class="bi bi-database-fill"></i><span>Data</span></div>
-                        <div class="float-chip chip-4" data-depth="2"><i class="bi bi-cloud-fill"></i><span>Cloud</span></div>
-                        <div class="float-chip chip-5" data-depth="1.2"><i class="bi bi-diagram-3-fill"></i><span>DevOps</span></div>
                     </div>
                 </div>
             </div>
@@ -192,7 +162,7 @@
         </div>
         <a class="scroll-indicator" href="#about" aria-label="Défiler vers le bas">
             <span class="scroll-mouse"><span class="scroll-wheel"></span></span>
-            <span class="scroll-word">Explorer</span>
+            <span class="scroll-word">Défiler vers le bas</span>
         </a>
     </section>
 
@@ -208,7 +178,7 @@
     <section id="about" class="section-padding" data-env="about">
         <div class="container">
             <div class="section-title" data-aos="fade-up">
-                <span class="section-kicker">01 &mdash; Profil</span>
+                <span class="section-kicker">01 &mdash; PROFIL</span>
                 <h2>À Propos de Moi</h2>
                 <div class="title-underline"></div>
             </div>
@@ -267,7 +237,7 @@
     <section id="skills" class="section-padding" data-env="skills">
         <div class="container">
             <div class="section-title" data-aos="fade-up">
-                <span class="section-kicker">02 &mdash; Stack technique</span>
+                <span class="section-kicker">02 &mdash; STACK TECHNIQUE</span>
                 <h2>Compétences</h2>
                 <div class="title-underline"></div>
                 <p class="section-subtitle">Les technologies et outils que j'utilise au quotidien</p>
@@ -405,7 +375,7 @@
     <section id="projects" class="section-padding" data-env="projects">
         <div class="container">
             <div class="section-title" data-aos="fade-up">
-                <span class="section-kicker">03 &mdash; Réalisations</span>
+                <span class="section-kicker">03 &mdash; RÉALISATIONS</span>
                 <h2>Mes Travaux</h2>
                 <div class="title-underline"></div>
                 <p class="section-subtitle">Une sélection de mes réalisations les plus significatives</p>
@@ -432,7 +402,7 @@
     <section id="experience" class="section-padding" data-env="experience">
         <div class="container">
             <div class="section-title" data-aos="fade-up">
-                <span class="section-kicker">04 &mdash; Parcours</span>
+                <span class="section-kicker">04 &mdash; PARCOURS</span>
                 <h2>Expérience & Formation</h2>
                 <div class="title-underline"></div>
             </div>
@@ -565,7 +535,7 @@
     <section id="contact" class="section-padding" data-env="contact">
         <div class="container">
             <div class="section-title" data-aos="fade-up">
-                <span class="section-kicker">05 &mdash; Prise de contact</span>
+                <span class="section-kicker">05 &mdash; PRISE DE CONTACT</span>
                 <h2>Me Contacter</h2>
                 <div class="title-underline"></div>
                 <p class="section-subtitle">N'hésitez pas à me contacter pour toute opportunité ou collaboration</p>
@@ -640,12 +610,12 @@
     <!-- Lenis — smooth scroll à inertie (style site d'architecture) -->
     <script src="https://cdn.jsdelivr.net/npm/lenis@1/dist/lenis.min.js"></script>
 
+    <!-- Three.js — décor de station piloté par le défilement -->
+    <script src="https://cdn.jsdelivr.net/npm/three@0.160.1/build/three.min.js" defer></script>
+
     <!-- Custom Scripts -->
     <script src="projects.js"></script>
     <script src="script.js"></script>
-
-    <!-- Scène 3D interactive (Three.js, modules ES) -->
-    <script type="module" src="three-scene.js"></script>
 </body>
 
 </html>
