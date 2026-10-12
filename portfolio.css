@@ -5,9 +5,9 @@
     --ink: #1f2b34;
     --muted: #5f6d78;
     --line: #d9e1e8;
-    --green: #2d6f98;
-    --green-dark: #194d70;
-    --green-soft: #e7f0f6;
+    --blue: #2d6f98;
+    --blue-dark: #194d70;
+    --blue-soft: #e7f0f6;
     --copper: #a75e35;
     --font-body: 'Instrument Sans', 'Segoe UI', sans-serif;
     --font-mono: 'DM Mono', Consolas, monospace;
@@ -46,7 +46,7 @@ h1, h2, h3, h4, h5, .navbar-brand {
 }
 
 a {
-    color: var(--green);
+    color: var(--blue);
 }
 
 a:focus-visible,
@@ -66,7 +66,7 @@ button:focus-visible {
     top: 0;
     left: 0;
     height: 3px;
-    background: var(--green);
+    background: var(--blue);
     box-shadow: none;
     transition: width 0.12s linear;
 }
@@ -98,7 +98,7 @@ button:focus-visible {
 }
 
 .navbar-brand:hover {
-    color: var(--green-dark);
+    color: var(--blue-dark);
     transform: none;
 }
 
@@ -107,11 +107,11 @@ button:focus-visible {
     height: 38px;
     border: 1px solid #c7d8e4;
     border-radius: 6px;
-    background: var(--green-soft);
+    background: var(--blue-soft);
     box-shadow: none;
-    color: var(--green-dark);
+    color: var(--blue-dark);
     font-size: 0.85rem;
-    -webkit-text-fill-color: var(--green-dark);
+    -webkit-text-fill-color: var(--blue-dark);
 }
 
 .navbar-collapse {
@@ -138,7 +138,7 @@ button:focus-visible {
 
 .navbar .nav-link:hover,
 .navbar .nav-link.active {
-    color: var(--green-dark) !important;
+    color: var(--blue-dark) !important;
 }
 
 .navbar-toggler {
@@ -166,8 +166,8 @@ button:focus-visible {
 }
 
 .nav-cv:hover {
-    border-color: var(--green);
-    color: var(--green-dark);
+    border-color: var(--blue);
+    color: var(--blue-dark);
 }
 
 .hero-section {
@@ -202,7 +202,7 @@ button:focus-visible {
     border: 0;
     border-radius: 0;
     background: transparent;
-    color: var(--green-dark);
+    color: var(--blue-dark);
     font-family: var(--font-mono);
     font-size: 0.74rem;
     letter-spacing: 0.04em;
@@ -212,7 +212,7 @@ button:focus-visible {
 .kicker-dot {
     width: 8px;
     height: 8px;
-    background: var(--green);
+    background: var(--blue);
     box-shadow: none;
     animation: none;
 }
@@ -288,8 +288,8 @@ button:focus-visible {
 .btn-primary {
     position: static;
     overflow: visible;
-    border: 1px solid var(--green-dark);
-    background: var(--green-dark);
+    border: 1px solid var(--blue-dark);
+    background: var(--blue-dark);
     box-shadow: none;
     color: #fff;
 }
@@ -315,9 +315,15 @@ button:focus-visible {
 
 .btn-outline-light:hover {
     transform: none;
-    border-color: var(--green);
-    background: var(--green-soft);
-    color: var(--green-dark);
+    border-color: var(--blue);
+    background: var(--blue-soft);
+    color: var(--blue-dark);
+}
+
+.social-links {
+    display: flex;
+    align-items: center;
+    gap: 0.65rem;
 }
 
 .hero-copy .social-links {
@@ -326,13 +332,13 @@ button:focus-visible {
     animation: none;
 }
 
-.scroll-indicator {
-    display: none;
-}
-
 .social-icon {
+    display: flex;
+    flex: 0 0 auto;
     width: 38px;
     height: 38px;
+    align-items: center;
+    justify-content: center;
     border: 1px solid var(--line);
     border-radius: 5px;
     background: transparent;
@@ -343,15 +349,15 @@ button:focus-visible {
 
 .social-icon:hover {
     transform: none;
-    border-color: var(--green);
-    background: var(--green-soft);
-    color: var(--green-dark);
+    border-color: var(--blue);
+    background: var(--blue-soft);
+    color: var(--blue-dark);
 }
 
 .hero-summary {
     align-self: center;
     padding: 1.7rem 1.6rem;
-    border-top: 2px solid var(--green);
+    border-top: 2px solid var(--blue);
     border-bottom: 1px solid var(--line);
     background: rgba(255, 255, 255, 0.56);
 }
@@ -360,7 +366,7 @@ button:focus-visible {
 .section-kicker {
     display: inline-block;
     margin-bottom: 1.05rem;
-    color: var(--green-dark);
+    color: var(--blue-dark);
     font-family: var(--font-mono);
     font-size: 0.72rem;
     font-weight: 500;
@@ -407,7 +413,7 @@ button:focus-visible {
     align-items: center;
     gap: 0.5rem;
     margin-top: 1.1rem;
-    color: var(--green-dark);
+    color: var(--blue-dark);
     font-size: 0.88rem;
     font-weight: 600;
     text-decoration: none;
@@ -440,7 +446,7 @@ button:focus-visible {
 .stat-number,
 .stat-plus {
     background: none;
-    color: var(--green-dark);
+    color: var(--blue-dark);
     font-family: var(--font-body);
     font-size: 1.5rem;
     font-weight: 600;
@@ -543,6 +549,8 @@ button:focus-visible {
 }
 
 .about-image {
+    display: block;
+    width: 100%;
     max-width: 390px;
     margin: 0 auto 1.5rem;
     border: 1px solid var(--line);
@@ -551,13 +559,11 @@ button:focus-visible {
     box-shadow: 0 10px 30px rgba(29, 41, 37, 0.08);
 }
 
-.image-border,
-.cv-zoom-hint {
-    display: none;
-}
-
 .about-image .cv-image,
 .about-image img {
+    display: block;
+    width: 100%;
+    height: auto;
     border-radius: 4px;
     box-shadow: none;
 }
@@ -594,12 +600,17 @@ button:focus-visible {
 }
 
 .info-list {
+    display: flex;
+    flex-direction: column;
     gap: 0;
     margin-top: 1.5rem !important;
     border-top: 1px solid var(--line);
 }
 
 .info-item {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
     min-width: 0;
     padding: 0.7rem 0;
     border: 0;
@@ -616,8 +627,10 @@ button:focus-visible {
 }
 
 .info-item i {
+    flex: 0 0 20px;
     width: 20px;
-    color: var(--green);
+    text-align: center;
+    color: var(--blue);
     font-size: 1rem;
 }
 
@@ -646,18 +659,24 @@ button:focus-visible {
 }
 
 .skill-card-header {
+    display: flex;
+    align-items: center;
     gap: 0.8rem;
     margin-bottom: 1rem;
 }
 
 .skill-card-icon {
+    display: flex;
+    flex: 0 0 36px;
     width: 36px;
     height: 36px;
+    align-items: center;
+    justify-content: center;
     border: 1px solid #c7d8e4;
     border-radius: 5px;
-    background: var(--green-soft);
+    background: var(--blue-soft);
     box-shadow: none;
-    color: var(--green-dark);
+    color: var(--blue-dark);
     font-size: 1rem;
 }
 
@@ -673,6 +692,8 @@ button:focus-visible {
 }
 
 .skill-card .skill-tags {
+    display: flex;
+    flex-wrap: wrap;
     gap: 0.4rem;
 }
 
@@ -690,9 +711,9 @@ button:focus-visible {
 .skill-card .skill-badge:hover {
     transform: none;
     border-color: #c8d8ce;
-    background: var(--green-soft);
+    background: var(--blue-soft);
     box-shadow: none;
-    color: var(--green-dark);
+    color: var(--blue-dark);
 }
 
 .project-filters {
@@ -718,8 +739,8 @@ button:focus-visible {
 .filter-btn:hover,
 .filter-btn.active {
     transform: none;
-    border-color: var(--green-dark);
-    background: var(--green-dark);
+    border-color: var(--blue-dark);
+    background: var(--blue-dark);
     box-shadow: none;
     color: #fff;
 }
@@ -755,7 +776,7 @@ button:focus-visible {
 }
 
 .project-card.featured {
-    border-top: 2px solid var(--green);
+    border-top: 2px solid var(--blue);
     box-shadow: none;
 }
 
@@ -787,7 +808,7 @@ button:focus-visible {
 }
 
 .project-card.featured .featured-badge {
-    color: var(--green-dark);
+    color: var(--blue-dark);
     font-size: 0.7rem;
     font-weight: 600;
 }
@@ -842,7 +863,7 @@ button:focus-visible {
     display: inline-flex;
     align-items: center;
     gap: 0.4rem;
-    color: var(--green-dark);
+    color: var(--blue-dark);
     font-size: 0.81rem;
     font-weight: 600;
     text-decoration: none;
@@ -862,33 +883,40 @@ button:focus-visible {
 }
 
 #experience .row > div > h3 i {
-    color: var(--green);
+    color: var(--blue);
     font-size: 1rem;
 }
 
 .timeline {
+    position: relative;
     padding-left: 1.25rem;
 }
 
 .timeline::before {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    content: '';
     left: 0;
     width: 1px;
     background: #cbd8cf;
 }
 
 .timeline-item {
+    position: relative;
     margin-bottom: 0;
     padding-bottom: 1.15rem;
 }
 
 .timeline-dot {
+    position: absolute;
     left: -1.52rem;
     top: 0.36rem;
     width: 9px;
     height: 9px;
     border: 2px solid var(--paper);
-    background: var(--green);
-    box-shadow: 0 0 0 1px var(--green);
+    background: var(--blue);
+    box-shadow: 0 0 0 1px var(--blue);
     animation: none;
 }
 
@@ -936,6 +964,8 @@ button:focus-visible {
 }
 
 .timeline-tags {
+    display: flex;
+    flex-wrap: wrap;
     gap: 0.32rem;
     margin-top: 0.75rem;
 }
@@ -948,6 +978,13 @@ button:focus-visible {
     box-shadow: none;
     text-align: left;
     transition: border-color 0.18s ease, transform 0.18s ease;
+}
+
+.contact-link {
+    display: block;
+    height: 100%;
+    color: inherit;
+    text-decoration: none;
 }
 
 #contact.section-padding {
@@ -966,13 +1003,16 @@ button:focus-visible {
 }
 
 .contact-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
     width: 36px;
     height: 36px;
     margin: 0 0 0.9rem;
     border: 1px solid #c7d8e4;
     border-radius: 5px;
-    background: var(--green-soft);
-    color: var(--green-dark);
+    background: var(--blue-soft);
+    color: var(--blue-dark);
     font-size: 1rem;
 }
 
@@ -994,7 +1034,7 @@ button:focus-visible {
 }
 
 .contact-link:hover .contact-info-card p {
-    color: var(--green-dark);
+    color: var(--blue-dark);
 }
 
 .footer {
@@ -1022,7 +1062,7 @@ button:focus-visible {
     border-radius: 5px;
     background: var(--surface);
     box-shadow: 0 4px 14px rgba(29, 41, 37, 0.12);
-    color: var(--green-dark);
+    color: var(--blue-dark);
     font-size: 1rem;
 }
 
@@ -1081,6 +1121,33 @@ html.js [data-aos].aos-in {
 
     .hero-stats {
         margin-top: 2rem !important;
+    }
+}
+
+@media (min-width: 768px) and (max-width: 991.98px) {
+    .section-padding {
+        padding-block: 56px;
+    }
+
+    #about .section-title,
+    #skills .section-title,
+    #projects .section-title,
+    #experience .section-title,
+    #contact .section-title {
+        margin-bottom: 1.75rem;
+    }
+
+    #about .row {
+        --bs-gutter-x: 1.5rem;
+    }
+
+    .skill-card {
+        height: auto;
+        min-height: 0;
+    }
+
+    #experience .row > div + div {
+        margin-top: 2rem;
     }
 }
 
