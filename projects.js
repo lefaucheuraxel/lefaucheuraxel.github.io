@@ -26,6 +26,16 @@ const projectsData = [
         demoUrl: "#"
     },
 
+    {
+        title: "Application de pilotage des reportings",
+        category: "app",
+        categoryName: "Stage / Full-Stack",
+        description: "Stage de 2 mois en 2024 chez Crédit Agricole CIB, à Saint-Quentin-en-Yvelines. Mise en place d'une application de pilotage des reportings avec un front-end Angular et un back-end Java. Travail en environnement international avec les équipes de Singapour, selon les pratiques Agile, DevOps et Green IT, avec CI/CD et déploiement sur Kubernetes interne.",
+        tags: ["Java", "Angular", "SQL Oracle", "Kubernetes", "CI/CD", "DevOps", "Agile"],
+        githubUrl: "#",
+        demoUrl: "#"
+    },
+
     // Projet Unity - Jeu RPG
     {
         title: "La Tombe Du Dragon - Jeu RPG Unity",

@@ -4,21 +4,21 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Axel Le Faucheur — Développeur Fullstack Junior</title>
+    <title>Axel Le Faucheur — Développeur DevOps Fullstack</title>
     <meta name="description"
-        content="Portfolio d'Axel Le Faucheur, développeur Fullstack junior diplômé d'un Master. Expérience chez Crédit Agricole CIB sur des projets Java, Data et Intelligence Artificielle.">
+        content="Portfolio d'Axel Le Faucheur, développeur DevOps Fullstack diplômé d'un Master. Expérience chez Crédit Agricole CIB sur des projets Java, Data, Cloud et Intelligence Artificielle.">
     <meta name="author" content="Axel Le Faucheur">
 
     <!-- Open Graph -->
-    <meta property="og:title" content="Axel Le Faucheur — Développeur Fullstack Junior">
+    <meta property="og:title" content="Axel Le Faucheur — Développeur DevOps Fullstack">
     <meta property="og:description" content="Java, Data & IA générative. Portfolio interactif.">
     <meta property="og:type" content="website">
 
-    <!-- Google Fonts : signalétique de station + lecture éditoriale -->
+    <!-- Typographie éditoriale -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
-        href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@400;500;600;700&family=DM+Mono:wght@400;500&family=Instrument+Sans:wdth,wght@75..100,400;500;600;700&display=swap"
+        href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Instrument+Sans:wght@400;500;600;700&display=swap"
         rel="stylesheet">
 
     <!-- Bootstrap 5 CSS (grille + collapse) -->
@@ -29,58 +29,21 @@
 
     <!-- Custom CSS -->
     <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="portfolio.css">
 </head>
 
 <body>
-    <!-- ===== PRÉCHARGEUR ===== -->
-    <div id="preloader" class="preloader">
-        <div class="preloader-inner">
-            <div class="preloader-mark">AL</div>
-            <div class="preloader-track"><span class="preloader-fill"></span></div>
-            <div class="preloader-count">0%</div>
-        </div>
-    </div>
-
-    <!-- Décor principal : la station est parcourue au défilement. -->
-    <div class="station-stage" aria-hidden="true">
-        <canvas id="stationCanvas"></canvas>
-        <div class="station-atmosphere"></div>
-    </div>
-
-    <!-- Étalonnage cinématographique : vignette, grain argentique, balayage -->
-    <div class="cinematic-overlay" aria-hidden="true"></div>
-
-    <aside class="station-hud" aria-hidden="true">
-        <span class="station-status">STATION BORÉALE // EN LIGNE</span>
-        <strong id="stationZone">QUAI D'ARRIVÉE</strong>
-        <span class="station-instruction">DÉFILER POUR AVANCER</span>
-    </aside>
-
-    <!-- ===== CURSEUR PERSONNALISÉ ===== -->
-    <div class="cursor-dot" aria-hidden="true"></div>
-    <div class="cursor-ring" aria-hidden="true"></div>
-
-    <!-- ===== BARRE DE PROGRESSION ===== -->
+    <!-- Progression de lecture -->
     <div id="scrollProgress"></div>
 
-    <!-- ===== NAVIGATION LATÉRALE (points de section) ===== -->
-    <nav class="world-nav" aria-label="Navigation par section">
-        <a href="#home" class="world-dot active" data-label="Quai" aria-label="Quai d'arrivée"><span></span></a>
-        <a href="#about" class="world-dot" data-label="Java" aria-label="Baie Java"><span></span></a>
-        <a href="#skills" class="world-dot" data-label="Data" aria-label="Laboratoire Data"><span></span></a>
-        <a href="#projects" class="world-dot" data-label="IA" aria-label="Laboratoire IA"><span></span></a>
-        <a href="#experience" class="world-dot" data-label="Cloud" aria-label="Baie Cloud"><span></span></a>
-        <a href="#contact" class="world-dot" data-label="Lune" aria-label="Dôme lunaire"><span></span></a>
-    </nav>
-
     <!-- Navigation -->
-    <nav class="navbar navbar-expand-lg navbar-dark fixed-top" id="mainNav" aria-label="Navigation principale">
+    <nav class="navbar navbar-expand-lg fixed-top" id="mainNav" aria-label="Navigation principale">
         <div class="container">
             <a class="navbar-brand" href="#home">
                 <span class="brand-mark">AL</span>
-                <span class="gradient-text">Axel Le Faucheur</span>
+                <span>Axel Le Faucheur</span>
             </a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Ouvrir le menu">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarNav">
@@ -92,6 +55,7 @@
                     <li class="nav-item"><a class="nav-link" href="#experience">Expérience</a></li>
                     <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
                 </ul>
+                <a class="nav-cv" href="CV_2026.pdf" target="_blank" rel="noopener">Mon CV PDF <i class="bi bi-arrow-up-right"></i></a>
             </div>
         </div>
     </nav>
@@ -99,26 +63,26 @@
     <!-- Hero Section -->
     <section id="home" class="hero-section d-flex align-items-center" data-env="home">
         <div class="container">
-            <div class="row align-items-center">
+            <div class="row align-items-center hero-row">
                 <div class="col-lg-8 hero-copy" data-aos="fade-right">
                     <div class="kicker">
                         <span class="kicker-dot"></span>
-                        Disponible — Développeur Fullstack, diplômé d'un Master
+                        Disponible — Développeur DevOps Fullstack
                     </div>
                     <h1 class="hero-title mb-3">
                         <span class="hero-line-1">Bonjour, je suis</span>
-                        <span class="gradient-text typed-text"></span>
+                        <span>Axel Le Faucheur</span>
                     </h1>
-                    <p class="lead mb-4">Développeur Fullstack passionné par le <strong>backend Java</strong>, les
-                        <strong>architectures distribuées</strong>, l'<strong>IA générative</strong> et les
-                        environnements <strong>Cloud</strong>. Expérience chez Crédit Agricole CIB.
+                    <p class="lead mb-4">Développeur DevOps Fullstack diplômé d'un Master, spécialisé en
+                        <strong>Java</strong>, <strong>Cloud</strong> et <strong>intelligence artificielle</strong>.
+                        Je conçois des applications robustes, du backend à l'automatisation de leur déploiement.
                     </p>
                     <div class="hero-buttons">
-                        <a href="#projects" class="btn btn-primary btn-lg btn-magnetic me-3">
-                            <i class="bi bi-arrow-down-right-circle-fill me-2"></i>Mes Travaux
+                        <a href="#projects" class="btn btn-primary btn-lg me-3">
+                            <i class="bi bi-arrow-down-right me-2"></i>Découvrir mes projets
                         </a>
-                        <a href="#contact" class="btn btn-outline-light btn-lg btn-magnetic">
-                            <i class="bi bi-broadcast-pin me-2"></i>Me contacter
+                        <a href="#contact" class="btn btn-outline-light btn-lg">
+                            Me contacter
                         </a>
                     </div>
                     <div class="social-links mt-4">
@@ -130,33 +94,49 @@
                                 class="bi bi-envelope"></i></a>
                     </div>
                 </div>
+                <div class="col-lg-4 hero-summary" data-aos="fade-left">
+                    <span class="summary-label">EN BREF</span>
+                    <div class="summary-item">
+                        <span class="summary-index">01</span>
+                        <div><strong>Master 2 SIIA</strong><span>UBO · ENIB · IMT Atlantique</span></div>
+                    </div>
+                    <div class="summary-item">
+                        <span class="summary-index">02</span>
+                        <div><strong>Expérience en banque</strong><span>Crédit Agricole CIB · 2024, 2026</span></div>
+                    </div>
+                    <div class="summary-item">
+                        <span class="summary-index">03</span>
+                        <div><strong>Recherche d'opportunités</strong><span>Développement backend · Data · IA</span></div>
+                    </div>
+                    <a href="#experience" class="summary-link">Voir mon parcours <i class="bi bi-arrow-right"></i></a>
+                </div>
             </div>
 
             <!-- Hero Stats -->
             <div class="row hero-stats mt-5" data-aos="fade-up" data-aos-delay="300">
                 <div class="col-6 col-md-3">
-                    <div class="stat-box">
-                        <span class="stat-number" data-target="11">0</span><span class="stat-plus">+</span>
+                    <a class="stat-box" href="#projects" aria-label="Voir les 12 projets réalisés">
+                        <span class="stat-number" data-target="12">0</span><span class="stat-plus">+</span>
                         <p>Projets réalisés</p>
-                    </div>
+                    </a>
                 </div>
                 <div class="col-6 col-md-3">
-                    <div class="stat-box">
+                    <a class="stat-box" href="#skills" aria-label="Voir les technologies maîtrisées">
                         <span class="stat-number" data-target="30">0</span><span class="stat-plus">+</span>
                         <p>Technologies</p>
-                    </div>
+                    </a>
                 </div>
                 <div class="col-6 col-md-3">
-                    <div class="stat-box">
+                    <a class="stat-box" href="#experience" aria-label="Voir mes expériences professionnelles">
                         <span class="stat-number" data-target="3">0</span>
                         <p>Expériences pro</p>
-                    </div>
+                    </a>
                 </div>
                 <div class="col-6 col-md-3">
-                    <div class="stat-box">
+                    <a class="stat-box" href="#about" aria-label="Découvrir mon parcours">
                         <span class="stat-number" data-target="5">0</span>
                         <p>Années de code</p>
-                    </div>
+                    </a>
                 </div>
             </div>
         </div>
@@ -165,14 +145,6 @@
             <span class="scroll-word">Défiler vers le bas</span>
         </a>
     </section>
-
-    <!-- Bande défilante de technologies -->
-    <div class="marquee" aria-hidden="true">
-        <div class="marquee-track">
-            <span>Java 21</span><span class="dot">•</span><span>Spring Boot</span><span class="dot">•</span><span>Python</span><span class="dot">•</span><span>Angular</span><span class="dot">•</span><span>Spark</span><span class="dot">•</span><span>LLM &amp; RAG</span><span class="dot">•</span><span>Kubernetes</span><span class="dot">•</span><span>Docker</span><span class="dot">•</span><span>GraphQL</span><span class="dot">•</span><span>Oracle</span><span class="dot">•</span><span>MCP</span><span class="dot">•</span><span>ArgoCD</span><span class="dot">•</span>
-            <span>Java 21</span><span class="dot">•</span><span>Spring Boot</span><span class="dot">•</span><span>Python</span><span class="dot">•</span><span>Angular</span><span class="dot">•</span><span>Spark</span><span class="dot">•</span><span>LLM &amp; RAG</span><span class="dot">•</span><span>Kubernetes</span><span class="dot">•</span><span>Docker</span><span class="dot">•</span><span>GraphQL</span><span class="dot">•</span><span>Oracle</span><span class="dot">•</span><span>MCP</span><span class="dot">•</span><span>ArgoCD</span><span class="dot">•</span>
-        </div>
-    </div>
 
     <!-- About Section -->
     <section id="about" class="section-padding" data-env="about">
@@ -194,9 +166,9 @@
                 </div>
                 <div class="col-lg-6" data-aos="fade-left">
                     <div class="about-content">
-                        <h3 class="mb-4">Axel Le Faucheur — Développeur Fullstack</h3>
+                        <h3 class="mb-4">Axel Le Faucheur — Développeur DevOps Fullstack</h3>
                         <p class="lead">
-                            Développeur Fullstack diplômé d'un Master (SIIA — Systèmes Intelligents, Interactifs et
+                            Développeur DevOps Fullstack diplômé d'un Master (SIIA — Systèmes Intelligents, Interactifs et
                             Autonomes). Expérience chez Crédit Agricole CIB sur des projets Java, Data et Intelligence
                             Artificielle.
                         </p>
@@ -489,7 +461,7 @@
                             <div class="timeline-dot"></div>
                             <div class="timeline-content">
                                 <h5>Master 2 SIIA — Diplômé</h5>
-                                <span class="timeline-date"><i class="bi bi-calendar3"></i> 2025</span>
+                                <span class="timeline-date"><i class="bi bi-calendar3"></i> 2026</span>
                                 <p>Master Systèmes Intelligents, Interactifs et Autonomes à l'UBO / ENIB / IMT Atlantique.
                                     Spécialisation en IA, systèmes distribués et environnements Cloud.</p>
                                 <div class="timeline-tags">
@@ -542,16 +514,7 @@
             </div>
 
             <div class="row g-4">
-                <div class="col-lg-4" data-aos="fade-up" data-aos-delay="100">
-                    <div class="contact-info-card">
-                        <div class="contact-icon">
-                            <i class="bi bi-geo-alt-fill"></i>
-                        </div>
-                        <h5>Localisation</h5>
-                        <p>Île-de-France / Bretagne</p>
-                    </div>
-                </div>
-                <div class="col-lg-4" data-aos="fade-up" data-aos-delay="200">
+                <div class="col-lg-3 col-md-6" data-aos="fade-up" data-aos-delay="200">
                     <a href="mailto:lefaucheuraxel@gmail.com" class="contact-link">
                         <div class="contact-info-card">
                             <div class="contact-icon">
@@ -562,7 +525,7 @@
                         </div>
                     </a>
                 </div>
-                <div class="col-lg-4" data-aos="fade-up" data-aos-delay="300">
+                <div class="col-lg-3 col-md-6" data-aos="fade-up" data-aos-delay="300">
                     <a href="tel:+33644753194" class="contact-link">
                         <div class="contact-info-card">
                             <div class="contact-icon">
@@ -570,6 +533,28 @@
                             </div>
                             <h5>Téléphone</h5>
                             <p>06 44 75 31 94</p>
+                        </div>
+                    </a>
+                </div>
+                <div class="col-lg-3 col-md-6" data-aos="fade-up" data-aos-delay="300">
+                    <a href="https://github.com/lefaucheuraxel" target="_blank" rel="noopener" class="contact-link">
+                        <div class="contact-info-card">
+                            <div class="contact-icon">
+                                <i class="bi bi-github"></i>
+                            </div>
+                            <h5>GitHub</h5>
+                            <p>lefaucheuraxel</p>
+                        </div>
+                    </a>
+                </div>
+                <div class="col-lg-3 col-md-6" data-aos="fade-up" data-aos-delay="300">
+                    <a href="https://www.linkedin.com/in/axel-le-faucheur" target="_blank" rel="noopener" class="contact-link">
+                        <div class="contact-info-card">
+                            <div class="contact-icon">
+                                <i class="bi bi-linkedin"></i>
+                            </div>
+                            <h5>LinkedIn</h5>
+                            <p>axel-le-faucheur</p>
                         </div>
                     </a>
                 </div>
@@ -582,18 +567,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-12 text-center">
-                    <div class="social-links mb-3">
-                        <a href="https://github.com/lefaucheuraxel" target="_blank" rel="noopener" class="social-icon"
-                            aria-label="GitHub"><i class="bi bi-github"></i></a>
-                        <a href="https://www.linkedin.com/in/axel-le-faucheur" target="_blank" rel="noopener"
-                            class="social-icon" aria-label="LinkedIn"><i class="bi bi-linkedin"></i></a>
-                        <a href="https://lefaucheuraxel.github.io/" target="_blank" rel="noopener" class="social-icon"
-                            aria-label="Site web"><i class="bi bi-globe"></i></a>
-                        <a href="mailto:lefaucheuraxel@gmail.com" class="social-icon" aria-label="Email"><i
-                                class="bi bi-envelope"></i></a>
-                    </div>
-                    <p class="mb-0">&copy; 2026 Axel Le Faucheur — Conçu et développé avec <i
-                            class="bi bi-heart-fill text-danger"></i></p>
+                    <p class="mb-0">&copy; 2026 Axel Le Faucheur </p>
                 </div>
             </div>
         </div>
@@ -607,15 +581,9 @@
     <!-- Bootstrap JS (collapse navbar + tooltips) -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
 
-    <!-- Lenis — smooth scroll à inertie (style site d'architecture) -->
-    <script src="https://cdn.jsdelivr.net/npm/lenis@1/dist/lenis.min.js"></script>
-
-    <!-- Three.js — décor de station piloté par le défilement -->
-    <script src="https://cdn.jsdelivr.net/npm/three@0.160.1/build/three.min.js" defer></script>
-
     <!-- Custom Scripts -->
     <script src="projects.js"></script>
-    <script src="script.js"></script>
+    <script src="portfolio.js"></script>
 </body>
 
 </html>
